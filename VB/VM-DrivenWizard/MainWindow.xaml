@@ -1,0 +1,45 @@
+﻿<Window x:Class="VM_DrivenWizard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VM_DrivenWizard"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxco="http://schemas.devexpress.com/winfx/2008/xaml/controls"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:vm="clr-namespace:VM_DrivenWizard.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525"
+        DataContext="{dxmvvm:ViewModelSource Type={x:Type vm:MainWindowViewModel}}">
+
+    <dxmvvm:Interaction.Behaviors>
+        <dx:DialogService x:Name="testService">
+            <dx:DialogService.ViewTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <dxco:Wizard Width="700" Height="400" AnimationType="SlideHorizontal">
+                            <dxmvvm:Interaction.Behaviors>
+                                <dxco:WizardService />
+                                <dx:DXMessageBoxService />
+                                <dxmvvm:EventToCommand EventName="Loaded" Command="{Binding ViewLoadedCommand}" />
+                            </dxmvvm:Interaction.Behaviors>
+                        </dxco:Wizard>
+                    </Grid>
+                </DataTemplate>
+            </dx:DialogService.ViewTemplate>
+            <dx:DialogService.DialogStyle>
+                <Style TargetType="dx:DXDialogWindow">
+                    <Setter Property="SizeToContent" Value="WidthAndHeight"/>
+                    <Setter Property="WindowStyle" Value="ToolWindow"/>
+                    <Setter Property="ResizeMode" Value="NoResize"/>
+                </Style>
+            </dx:DialogService.DialogStyle>
+        </dx:DialogService>
+    </dxmvvm:Interaction.Behaviors>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button Command="{Binding ShowDialogCommand}" Content="Start Wizard" MinWidth="100" MinHeight="50"/>
+            <TextBlock Text="{Binding Text}" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="VM_DrivenWizard.Views.PlayTunePage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:viewmodel="clr-namespace:VM_DrivenWizard.ViewModels"
+            xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+            xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+            xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+            xmlns:dxco="http://schemas.devexpress.com/winfx/2008/xaml/controls"
+            mc:Ignorable="d" 
+            d:DesignHeight="300" d:DesignWidth="300"
+            DataContext="{dxmvvm:ViewModelSource Type=viewmodel:PlayTunePageViewModel}">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="WizardHeaderTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock FontSize="12" FontWeight="Bold" Margin="16,10,0,0" Text="{Binding Header}" />
+                <TextBlock Grid.Row="1" FontSize="10" Margin="46,2,0,0" Text="{Binding Description}" />
+                <Image Grid.Column="1" Grid.RowSpan="2" Margin="0,0,16,0" Stretch="None" Source="/VM-DrivenWizard;component/Images/WizardControl/image-61x61.png" />
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <DockPanel>
+        <dx:DialogFooter>
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <dxco:WizardButton Content="Back" dxco:Wizard.IsButtonBack="True" />
+                <dxco:WizardButton Content="Next" dxco:Wizard.IsButtonNext="True" />
+                <dxco:WizardButton Content="Cancel" dxco:Wizard.IsButtonCancel="True" Margin="20,0,0,0" />
+            </StackPanel>
+        </dx:DialogFooter>
+        <ContentPresenter DockPanel.Dock="Top" Content="{Binding}" ContentTemplate="{StaticResource WizardHeaderTemplate}"/>
+        <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="10" MinWidth="65" MinHeight="22" Content="Play" Command="{Binding PlayCommand}"/>
+        <dxe:ListBoxEdit ValueMember="Content" EditValue="{Binding Song, UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,0" FontSize="10">
+            <dxe:ListBoxEditItem Content="Metallica - Enter Sandman" />
+            <dxe:ListBoxEditItem Content="Nirvana - Smells Like Teen Spirit" />
+            <dxe:ListBoxEditItem Content="Pet Shop Boys - West End Girls" />
+            <dxe:ListBoxEditItem Content="Run D.M.C. - Christmas in Hollis" />
+            <dxe:ListBoxEditItem Content="Spice Girls - Wannabe" />
+            <dxe:ListBoxEditItem Content="Backstreet Boys - Show Me the Meaning" />
+            <dxe:ListBoxEditItem Content="The Prodigy - Firestarter" />
+            <dxe:ListBoxEditItem Content="The Beatles - Yellow Submarine" />
+            <dxe:ListBoxEditItem Content="The Rolling Stones - Angie" />
+            <dxe:ListBoxEditItem Content="Black Eyed Peas - Pump It" />
+            <dxe:ListBoxEditItem Content="Rihanna - Umbrella" />
+            <dxe:ListBoxEditItem Content="Linkin Park - From the Inside" />
+            <dxe:ListBoxEditItem Content="Madonna - Music" />
+            <dxe:ListBoxEditItem Content="Michael Jackson - Bad" />
+            <dxe:ListBoxEditItem Content="Kanye West - Stronger" />
+            <dxe:ListBoxEditItem Content="Gwen Stefani - 4 in the Morning" />
+        </dxe:ListBoxEdit>
+    </DockPanel>
+</UserControl>
