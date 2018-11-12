@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Linq
@@ -19,12 +19,12 @@ Namespace VM_DrivenWizard.ViewModels
         Public Shared Function Create() As WelcomePageViewModel
             Return ViewModelSource.Create(Function() New WelcomePageViewModel())
         End Function
-        Public ReadOnly Property CanGoForward() As Boolean
+        Public ReadOnly Property CanGoForward() As Boolean Implements ISupportWizardNextCommand.CanGoForward
             Get
                 Return True
             End Get
         End Property
-        Public Sub OnGoForward(ByVal e As CancelEventArgs)
+        Public Sub OnGoForward(ByVal e As CancelEventArgs) Implements ISupportWizardNextCommand.OnGoForward
             GoForward()
         End Sub
         Protected Sub GoForward()

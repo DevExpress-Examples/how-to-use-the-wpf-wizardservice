@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Linq
@@ -18,13 +18,13 @@ Namespace VM_DrivenWizard.ViewModels
             ShowFinish = True
             AllowBack = True
         End Sub
-        Public ReadOnly Property CanFinish() As Boolean
+        Public ReadOnly Property CanFinish() As Boolean Implements ISupportWizardFinishCommand.CanFinish
             Get
                 Return True
             End Get
         End Property
 
-        Public Sub OnFinish(ByVal e As CancelEventArgs)
+        Public Sub OnFinish(ByVal e As CancelEventArgs) Implements ISupportWizardFinishCommand.OnFinish
             Me.GetService(Of IMessageBoxService)().ShowMessage("Thank you for completing this WPF feature tour!", "WPF Tour", MessageButton.OK, MessageIcon.Exclamation)
         End Sub
         Protected Overrides Function GetCanCancel() As Boolean

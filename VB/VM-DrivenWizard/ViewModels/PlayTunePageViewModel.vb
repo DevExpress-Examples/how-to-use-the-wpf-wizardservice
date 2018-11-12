@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Linq
@@ -44,13 +44,13 @@ Namespace VM_DrivenWizard.ViewModels
         End Function
         Public Overridable Property Song() As String
 
-        Public ReadOnly Property CanGoForward() As Boolean
+        Public ReadOnly Property CanGoForward() As Boolean Implements ISupportWizardNextCommand.CanGoForward
             Get
                 Return CanPlay()
             End Get
         End Property
 
-        Public ReadOnly Property CanFinish() As Boolean
+        Public ReadOnly Property CanFinish() As Boolean Implements ISupportWizardFinishCommand.CanFinish
             Get
                 Return True
             End Get
@@ -60,10 +60,10 @@ Namespace VM_DrivenWizard.ViewModels
             Model.Song = Song
         End Sub
 
-        Public Sub OnGoForward(ByVal e As CancelEventArgs)
+        Public Sub OnGoForward(ByVal e As CancelEventArgs) Implements ISupportWizardNextCommand.OnGoForward
             Me.GetRequiredService(Of IWizardService)().Navigate("CongratulationsPage", Model, Me)
         End Sub
-        Public Sub OnFinish(ByVal e As CancelEventArgs)
+        Public Sub OnFinish(ByVal e As CancelEventArgs) Implements ISupportWizardFinishCommand.OnFinish
             Me.GetService(Of IMessageBoxService)().ShowMessage("You have finished the tour.", "WPF Tour", MessageButton.OK, MessageIcon.Exclamation)
         End Sub
     End Class

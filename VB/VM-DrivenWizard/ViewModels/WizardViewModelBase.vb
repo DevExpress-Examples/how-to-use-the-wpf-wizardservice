@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Linq
@@ -15,7 +15,7 @@ Namespace VM_DrivenWizard.ViewModels
 
         Protected Sub New()
         End Sub
-        Public ReadOnly Property CanCancel() As Boolean
+        Public ReadOnly Property CanCancel() As Boolean Implements ISupportWizardCancelCommand.CanCancel
             Get
                 Return GetCanCancel()
             End Get
@@ -37,7 +37,7 @@ Namespace VM_DrivenWizard.ViewModels
                 Model = DirectCast(value, Model)
             End Set
         End Property
-        Public Sub OnCancel(ByVal e As CancelEventArgs)
+        Public Sub OnCancel(ByVal e As CancelEventArgs) Implements ISupportWizardCancelCommand.OnCancel
             If Me.GetService(Of IMessageBoxService)().ShowMessage("Do you want to exit the WPF feature tour?", "WPF Tour", MessageButton.YesNo, MessageIcon.Question) = MessageResult.No Then
                 e.Cancel = True
             End If
