@@ -1,7 +1,7 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [MainWindow.xaml](./CS/VM-DrivenWizard/MainWindow.xaml) (VB: [MainWindow.xaml.vb](./VB/VM-DrivenWizard/MainWindow.xaml.vb))
+* [MainWindow.xaml](./CS/VM-DrivenWizard/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/VM-DrivenWizard/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/VM-DrivenWizard/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/VM-DrivenWizard/MainWindow.xaml.vb))
 * [Model.cs](./CS/VM-DrivenWizard/Model/Model.cs) (VB: [Model.vb](./VB/VM-DrivenWizard/Model/Model.vb))
 * [CongratulationsPageViewModel.cs](./CS/VM-DrivenWizard/ViewModels/CongratulationsPageViewModel.cs) (VB: [CongratulationsPageViewModel.vb](./VB/VM-DrivenWizard/ViewModels/CongratulationsPageViewModel.vb))
