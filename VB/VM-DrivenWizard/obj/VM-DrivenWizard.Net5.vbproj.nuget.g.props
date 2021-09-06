@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Admin\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages;C:\Program Files (x86)\Microsoft\Xamarin\NuGet\;C:\Program Files\dotnet\sdk\NuGetFallbackFolder</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.8.1</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="$([MSBuild]::EnsureTrailingSlash($(NuGetPackageFolders)))" />
+  </ItemGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)devexpress.data.desktop\21.1.5\build\DevExpress.Data.Desktop.props" Condition="Exists('$(NuGetPackageRoot)devexpress.data.desktop\21.1.5\build\DevExpress.Data.Desktop.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgDevExpress_Wpf_Core Condition=" '$(PkgDevExpress_Wpf_Core)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.core\21.1.5</PkgDevExpress_Wpf_Core>
+    <PkgDevExpress_Wpf_Ribbon Condition=" '$(PkgDevExpress_Wpf_Ribbon)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.ribbon\21.1.5</PkgDevExpress_Wpf_Ribbon>
+    <PkgDevExpress_Wpf_LayoutControl Condition=" '$(PkgDevExpress_Wpf_LayoutControl)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.layoutcontrol\21.1.5</PkgDevExpress_Wpf_LayoutControl>
+    <PkgDevExpress_Wpf_Grid_Core Condition=" '$(PkgDevExpress_Wpf_Grid_Core)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.grid.core\21.1.5</PkgDevExpress_Wpf_Grid_Core>
+    <PkgDevExpress_Wpf_DocumentViewer_Core Condition=" '$(PkgDevExpress_Wpf_DocumentViewer_Core)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.documentviewer.core\21.1.5</PkgDevExpress_Wpf_DocumentViewer_Core>
+    <PkgDevExpress_Wpf_Docking Condition=" '$(PkgDevExpress_Wpf_Docking)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.docking\21.1.5</PkgDevExpress_Wpf_Docking>
+    <PkgDevExpress_Wpf_Printing Condition=" '$(PkgDevExpress_Wpf_Printing)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.printing\21.1.5</PkgDevExpress_Wpf_Printing>
+    <PkgDevExpress_Wpf_RichEdit Condition=" '$(PkgDevExpress_Wpf_RichEdit)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.richedit\21.1.5</PkgDevExpress_Wpf_RichEdit>
+    <PkgDevExpress_Wpf_PropertyGrid Condition=" '$(PkgDevExpress_Wpf_PropertyGrid)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.propertygrid\21.1.5</PkgDevExpress_Wpf_PropertyGrid>
+    <PkgDevExpress_Wpf_Grid_Printing Condition=" '$(PkgDevExpress_Wpf_Grid_Printing)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.grid.printing\21.1.5</PkgDevExpress_Wpf_Grid_Printing>
+    <PkgDevExpress_Wpf_ExpressionEditor Condition=" '$(PkgDevExpress_Wpf_ExpressionEditor)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.expressioneditor\21.1.5</PkgDevExpress_Wpf_ExpressionEditor>
+    <PkgDevExpress_Wpf_Grid Condition=" '$(PkgDevExpress_Wpf_Grid)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.grid\21.1.5</PkgDevExpress_Wpf_Grid>
+    <PkgDevExpress_Wpf_Charts Condition=" '$(PkgDevExpress_Wpf_Charts)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.charts\21.1.5</PkgDevExpress_Wpf_Charts>
+    <PkgDevExpress_Wpf_PivotGrid Condition=" '$(PkgDevExpress_Wpf_PivotGrid)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.pivotgrid\21.1.5</PkgDevExpress_Wpf_PivotGrid>
+    <PkgDevExpress_Wpf_Controls Condition=" '$(PkgDevExpress_Wpf_Controls)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.controls\21.1.5</PkgDevExpress_Wpf_Controls>
+    <PkgDevExpress_Wpf_NavBar Condition=" '$(PkgDevExpress_Wpf_NavBar)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.navbar\21.1.5</PkgDevExpress_Wpf_NavBar>
+    <PkgDevExpress_Wpf_Diagram Condition=" '$(PkgDevExpress_Wpf_Diagram)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.diagram\21.1.5</PkgDevExpress_Wpf_Diagram>
+    <PkgDevExpress_Wpf_Reporting Condition=" '$(PkgDevExpress_Wpf_Reporting)' == '' ">C:\Users\Admin\.nuget\packages\devexpress.wpf.reporting\21.1.5</PkgDevExpress_Wpf_Reporting>
+  </PropertyGroup>
+</Project>

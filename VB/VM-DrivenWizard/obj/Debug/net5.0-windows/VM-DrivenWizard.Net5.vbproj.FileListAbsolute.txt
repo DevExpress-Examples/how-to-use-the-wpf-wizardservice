@@ -1,0 +1,9 @@
+C:\Temp\28845c23-3576-4a22-b475-9f2ebac9011c\tempTestingVB\VM-DrivenWizard\obj\Debug\net5.0-windows\VM-DrivenWizard.Net5.vbproj.AssemblyReference.cache
+C:\Temp\28845c23-3576-4a22-b475-9f2ebac9011c\tempTestingVB\VM-DrivenWizard\obj\Debug\net5.0-windows\MainWindow.g.vb
+C:\Temp\28845c23-3576-4a22-b475-9f2ebac9011c\tempTestingVB\VM-DrivenWizard\obj\Debug\net5.0-windows\Views\CongratulationsPage.g.vb
+C:\Temp\28845c23-3576-4a22-b475-9f2ebac9011c\tempTestingVB\VM-DrivenWizard\obj\Debug\net5.0-windows\Views\PlayTunePage.g.vb
+C:\Temp\28845c23-3576-4a22-b475-9f2ebac9011c\tempTestingVB\VM-DrivenWizard\obj\Debug\net5.0-windows\Views\WelcomePage.g.vb
+C:\Temp\28845c23-3576-4a22-b475-9f2ebac9011c\tempTestingVB\VM-DrivenWizard\obj\Debug\net5.0-windows\Application.g.vb
+C:\Temp\28845c23-3576-4a22-b475-9f2ebac9011c\tempTestingVB\VM-DrivenWizard\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.vb
+C:\Temp\28845c23-3576-4a22-b475-9f2ebac9011c\tempTestingVB\VM-DrivenWizard\obj\Debug\net5.0-windows\VM-DrivenWizard_MarkupCompile.cache
+C:\Temp\28845c23-3576-4a22-b475-9f2ebac9011c\tempTestingVB\VM-DrivenWizard\obj\Debug\net5.0-windows\VM-DrivenWizard_MarkupCompile.lref

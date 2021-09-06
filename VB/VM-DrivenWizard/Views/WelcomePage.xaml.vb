@@ -14,11 +14,11 @@ Imports System.Windows.Navigation
 Imports System.Windows.Shapes
 
 Namespace VM_DrivenWizard.Views
-    Partial Public Class WelcomePage
-        Inherits UserControl
+	Partial Public Class WelcomePage
+		Inherits UserControl
 
-        Public Sub New()
-            InitializeComponent()
-        End Sub
-    End Class
+		Public Sub New()
+			InitializeComponent()
+		End Sub
+	End Class
 End Namespace

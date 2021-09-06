@@ -1,0 +1,108 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Temp\\28845c23-3576-4a22-b475-9f2ebac9011c\\tempTestingVB\\VM-DrivenWizard\\VM-DrivenWizard.Net5.vbproj": {}
+  },
+  "projects": {
+    "C:\\Temp\\28845c23-3576-4a22-b475-9f2ebac9011c\\tempTestingVB\\VM-DrivenWizard\\VM-DrivenWizard.Net5.vbproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Temp\\28845c23-3576-4a22-b475-9f2ebac9011c\\tempTestingVB\\VM-DrivenWizard\\VM-DrivenWizard.Net5.vbproj",
+        "projectName": "VM-DrivenWizard",
+        "projectPath": "C:\\Temp\\28845c23-3576-4a22-b475-9f2ebac9011c\\tempTestingVB\\VM-DrivenWizard\\VM-DrivenWizard.Net5.vbproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Temp\\28845c23-3576-4a22-b475-9f2ebac9011c\\tempTestingVB\\VM-DrivenWizard\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Temp\\28845c23-3576-4a22-b475-9f2ebac9011c\\tempTestingVB\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "\\\\CORP\\builds\\release\\nugetproxy": {},
+          "\\\\corp\\builds\\codecentral\\DXDLLS4CORE\\21.1.5": {},
+          "\\\\corp\\builds\\codecentral\\DXDlls\\21.1.5\\Packages": {},
+          "http://ccnet.devexpress.devx/nuget/index.json": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/UGGCs6yMmBssebePEEuCp1SIWmYhOFudfSdm7Ze3udQbpFYBN9/api": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "DevExpress.Data": {
+              "target": "Package",
+              "version": "[21.1.*-*, )"
+            },
+            "DevExpress.Data.Desktop": {
+              "target": "Package",
+              "version": "[21.1.*-*, )"
+            },
+            "DevExpress.Mvvm": {
+              "target": "Package",
+              "version": "[21.1.*-*, )"
+            },
+            "DevExpress.Wpf.Controls": {
+              "target": "Package",
+              "version": "[21.1.*-*, )"
+            },
+            "DevExpress.Wpf.Core": {
+              "target": "Package",
+              "version": "[21.1.*-*, )"
+            },
+            "DevExpress.Wpf.Reporting": {
+              "target": "Package",
+              "version": "[21.1.*-*, )"
+            },
+            "DevExpress.Wpf.Themes.All": {
+              "target": "Package",
+              "version": "[21.1.*-*, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
