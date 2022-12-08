@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VM_DrivenWizard"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxi="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
         xmlns:dxco="http://schemas.devexpress.com/winfx/2008/xaml/controls"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         xmlns:vm="clr-namespace:VM_DrivenWizard.ViewModel"
@@ -53,14 +54,16 @@
                 </DataTemplate>
             </dx:DialogService.ViewTemplate>
             <dx:DialogService.DialogStyle>
-                <Style TargetType="dx:DXDialogWindow">
+                <Style TargetType="dx:ThemedWindow">
                     <Setter Property="WindowStyle" Value="ToolWindow"/>
                     <Setter Property="Width" Value="1000" />
                     <Setter Property="Height" Value="600" />
+                    <Setter Property="dxi:ThemedWindowOptions.UseCustomDialogFooter" Value="True"/>
                 </Style>
             </dx:DialogService.DialogStyle>
         </dx:DialogService>
     </dxmvvm:Interaction.Behaviors>
+
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Button Command="{Binding ShowDialogCommand}" Content="Start Wizard" MinWidth="100" MinHeight="50"/>
