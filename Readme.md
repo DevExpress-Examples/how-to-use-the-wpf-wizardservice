@@ -28,6 +28,17 @@ The following table lists Wizard buttons and API used to customize their behavio
 | Cancel | [AllowCancel](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage.AllowCancel) | [ShowCancel](DevExpress.Xpf.Controls.WizardPage.ShowCancel) | [ISupportWizardCancelCommand](https://docs.devexpress.com/CoreLibraries/DevExpress.Mvvm.ISupportWizardCancelCommand) | [CanCancel](https://docs.devexpress.com/CoreLibraries/DevExpress.Mvvm.ISupportWizardCancelCommand.CanCancel) | [OnCancel](https://docs.devexpress.com/CoreLibraries/DevExpress.Mvvm.ISupportWizardCancelCommand.OnCancel(System.ComponentModel.CancelEventArgs)) |
 | Finish | [AllowFinish](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage.AllowFinish) | [ShowFinish](DevExpress.Xpf.Controls.WizardPage.ShowFinish) | [ISupportWizardFinishCommand](https://docs.devexpress.com/CoreLibraries/DevExpress.Mvvm.ISupportWizardFinishCommand) | [CanFinish](https://docs.devexpress.com/CoreLibraries/DevExpress.Mvvm.ISupportWizardFinishCommand.CanFinish) | [OnFinish](https://docs.devexpress.com/CoreLibraries/DevExpress.Mvvm.ISupportWizardFinishCommand.OnFinish(System.ComponentModel.CancelEventArgs)) |
 
+This example uses the DevExpress [ThemedWindow](https://docs.devexpress.com/WPF/DevExpress.Xpf.Core.ThemedWindow) as a dialog container. In this case, set the `ThemedWindowOptions.UseCustomDialogFooter` attached property to `true` to remove the duplicated dialog footer:
+
+```xaml
+<dx:DialogService.DialogStyle>
+    <Style TargetType="dx:ThemedWindow">
+        <!-- ... -->
+        <Setter Property="dxi:ThemedWindowOptions.UseCustomDialogFooter" Value="True"/>
+    </Style>
+</dx:DialogService.DialogStyle>
+```
+
 ## Files to Review
 
 * [MainWindow.xaml](./CS/VM-DrivenWizard/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/VM-DrivenWizard/MainWindow.xaml))
