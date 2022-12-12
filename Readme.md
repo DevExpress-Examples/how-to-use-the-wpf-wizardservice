@@ -54,7 +54,9 @@ This example uses the DevExpress [ThemedWindow](https://docs.devexpress.com/WPF/
 ## Documentation
 
 * [WizardService](https://docs.devexpress.com/WPF/116321/mvvm-framework/services/predefined-set/wizardservice)
-* [Wizard Control - Buttons](https://docs.devexpress.com/WPF/115998/controls-and-libraries/navigation-controls/wizard-control/buttons)
+* [Wizard Control](https://docs.devexpress.com/WPF/115979/controls-and-libraries/navigation-controls/wizard-control)
+* [Wizard Pages](https://docs.devexpress.com/WPF/115997/controls-and-libraries/navigation-controls/wizard-control/pages)
+* [Wizard Buttons](https://docs.devexpress.com/WPF/115998/controls-and-libraries/navigation-controls/wizard-control/buttons)
 
 ## More Examples
 
