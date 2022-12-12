@@ -11,13 +11,13 @@ This example demonstrates how to use the [WizardService](https://docs.devexpress
 
 ## Implementation Details
 
-The **WizardService** generates [WizardPages](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage), based on the template defined by the [PageGeneratorTemplate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardService.PageGeneratorTemplate) property. It allows you to implement navigation between pages at the ViewModel level. In this example, the [WizardPage](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage)'s Allow_ and Show_ properties are bound to the page's ViewModel properties. Use these properties to hide and disable specific navigation buttons.
+The **WizardService** generates [WizardPages](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage) based on the template defined by the [PageGeneratorTemplate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardService.PageGeneratorTemplate) property. This template allows you to implement navigation between pages at the ViewModel level. In this example, the [WizardPage](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage)'s Allow_ and Show_ properties are bound to the page's ViewModel properties. Use these properties to hide and disable specific navigation buttons.
 
 You can specify Show_ and Allow_ properties in both [WizardPage](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage) and [Wizard](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.Wizard). The **Wizard**'s properties have a higher priority than corresponding **WizardPage**'s properties.
 
 ViewModels in this project implement ISupportWizard_Command interfaces that expose the Can_ property and the On_ method. Use the Can_ property to enable/disable the corresponding navigation button. When a user clicks the button, the **Wizard** executes the On_ method, and the [WizardService.Navigate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardService.Navigate(System.String-System.Object-System.Object-System.Object)) method switches the Wizard to the specified page. The ISupportWizard_Command's properties have a higher priority than corresponding **WizardPage**'s properties.
 
-The value returned by the Can_ method has a higher priority than the WizardPage's Allow_ property value.
+The ISupportWizard_Command's Can_ property value has a higher priority than the **WizardPage**'s Allow_ property value.
 
 The following table lists Wizard buttons and API used to customize their behavior:
 
