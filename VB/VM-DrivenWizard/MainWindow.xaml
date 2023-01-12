@@ -22,7 +22,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <GroupBox Header="Wizard's options" Margin="5,5,5,20">
+                        <GroupBox Header="Wizard options" Margin="5,5,5,20">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock VerticalAlignment="Center" Text="Show: " />
                                 <CheckBox IsChecked="{Binding ShowNext, ElementName=wizard}" Content="Next" Margin="5,0,0,0" />

@@ -55,7 +55,7 @@
             </dxe:ListBoxEdit>
         </DockPanel>
 
-        <GroupBox Grid.Column="1" Header="This Page's options" Margin="2,0,2,2" MinWidth="125">
+        <GroupBox Grid.Column="1" Header="Page options" Margin="2,0,2,2" MinWidth="125">
             <StackPanel Orientation="Vertical">
                 <CheckBox IsChecked="{Binding ShowNext}" Content="Show next"/>
                 <CheckBox IsChecked="{Binding ShowBack}" Content="Show back"/>
