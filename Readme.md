@@ -5,9 +5,9 @@
 <!-- default badges end -->
 # How to Use the WPF WizardService
 
-This example demonstrates how to use the [WizardService](https://docs.devexpress.com/WPF/116321/mvvm-framework/services/predefined-set/wizardservice).
+This example demonstrates how to use the [WizardService](https://docs.devexpress.com/WPF/116321/mvvm-framework/services/predefined-set/wizardservice) and specify the visibility and availability of wizard buttons.
 
-![image](https://user-images.githubusercontent.com/65009440/206715286-6b5d21f8-330a-4c48-a1ae-01589f6ae9ea.png)
+![image](https://user-images.githubusercontent.com/65009440/212023753-8d0108eb-0b53-4030-824b-4221b302e7cb.png)
 
 ## Implementation Details
 
@@ -16,8 +16,6 @@ The **WizardService** generates [WizardPages](https://docs.devexpress.com/WPF/De
 You can specify Show_ and Allow_ properties in both [WizardPage](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage) and [Wizard](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.Wizard). The **Wizard**'s properties have a higher priority than corresponding **WizardPage**'s properties.
 
 ViewModels in this project implement ISupportWizard_Command interfaces that expose the Can_ property and the On_ method. Use the Can_ property to enable/disable the corresponding navigation button. When a user clicks the button, the **Wizard** executes the On_ method, and the [WizardService.Navigate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardService.Navigate(System.String-System.Object-System.Object-System.Object)) method switches the Wizard to the specified page. The ISupportWizard_Command's properties have a higher priority than corresponding **WizardPage**'s properties.
-
-The ISupportWizard_Command's Can_ property value has a higher priority than the **WizardPage**'s Allow_ property value.
 
 The following table lists Wizard buttons and API used to customize their behavior:
 
