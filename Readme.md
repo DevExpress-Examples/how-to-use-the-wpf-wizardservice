@@ -13,9 +13,43 @@ This example demonstrates how to use the [WizardService](https://docs.devexpress
 
 The **WizardService** generates [WizardPages](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage) based on the template defined by the [PageGeneratorTemplate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardService.PageGeneratorTemplate) property. This template allows you to implement navigation between pages at the ViewModel level. In this example, the [WizardPage](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage)'s Allow_ and Show_ properties are bound to the page's ViewModel properties. Use these properties to hide and disable specific navigation buttons.
 
+```xaml
+<dxco:WizardService>
+    <dxco:WizardService.PageGeneratorTemplate>
+        <DataTemplate>
+            <dxco:WizardPage ShowNext="{Binding ShowNext}" ShowBack="{Binding ShowBack}" 
+                             ShowCancel="{Binding ShowCancel}" ShowFinish="{Binding ShowFinish}"
+                             AllowNext="{Binding AllowNext}" AllowBack="{Binding AllowBack}" 
+                             AllowCancel="{Binding AllowCancel}" AllowFinish="{Binding AllowFinish}" />
+        </DataTemplate>
+    </dxco:WizardService.PageGeneratorTemplate>
+</dxco:WizardService>
+```
+
 You can specify Show_ and Allow_ properties in both [WizardPage](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardPage) and [Wizard](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.Wizard). The **Wizard**'s properties have a higher priority than corresponding **WizardPage**'s properties.
 
 ViewModels in this project implement ISupportWizard_Command interfaces that expose the Can_ property and the On_ method. Use the Can_ property to enable/disable the corresponding navigation button. When a user clicks the button, the **Wizard** executes the On_ method, and the [WizardService.Navigate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Controls.WizardService.Navigate(System.String-System.Object-System.Object-System.Object)) method switches the Wizard to the specified page. The ISupportWizard_Command's properties have a higher priority than corresponding **WizardPage**'s properties.
+
+```cs
+public class WelcomePageViewModel : WizardViewModelBase, ISupportWizardNextCommand {
+    protected WelcomePageViewModel() {
+        ShowCancel = true;
+        ShowNext = true;
+    }
+    public static WelcomePageViewModel Create() {
+        return ViewModelSource.Create(() => new WelcomePageViewModel());
+    }
+    public bool CanGoForward {
+        get { return true; }
+    }
+    public void OnGoForward(CancelEventArgs e) {
+        GoForward();
+    }
+    protected void GoForward() {
+        this.GetRequiredService<IWizardService>().Navigate("PlayTunePage", Model, this);
+    }
+}
+```
 
 The following table lists Wizard buttons and API used to customize their behavior:
 
