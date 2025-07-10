@@ -4,53 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VM_DrivenWizard"
+        xmlns:views="clr-namespace:VM_DrivenWizard.Views"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dxi="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
         xmlns:dxco="http://schemas.devexpress.com/winfx/2008/xaml/controls"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-        xmlns:vm="clr-namespace:VM_DrivenWizard.ViewModel"
+        xmlns:vm="clr-namespace:VM_DrivenWizard.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
-        DataContext="{dxmvvm:ViewModelSource Type={x:Type vm:MainWindowViewModel}}">
-
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
     <dxmvvm:Interaction.Behaviors>
-        <dx:DialogService x:Name="testService">
+        <dx:DialogService UnregisterOnUnloaded="True">
             <dx:DialogService.ViewTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <GroupBox Header="Wizard options" Margin="5,5,5,20">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock VerticalAlignment="Center" Text="Show: " />
-                                <CheckBox IsChecked="{Binding ShowNext, ElementName=wizard}" Content="Next" Margin="5,0,0,0" />
-                                <CheckBox IsChecked="{Binding ShowBack, ElementName=wizard}" Content="Back" Margin="20,0,0,0"/>
-                                <CheckBox IsChecked="{Binding ShowCancel, ElementName=wizard}" Content="Cancel" Margin="20,0,0,0"/>
-                                <CheckBox IsChecked="{Binding ShowFinish, ElementName=wizard}" Content="Finish" Margin="20,0,0,0"/>
-                                <TextBlock VerticalAlignment="Center" Text="Allow: " Margin="40,0,0,0" />
-                                <CheckBox IsChecked="{Binding AllowNext, ElementName=wizard}" Content="Next" Margin="5,0,0,0"/>
-                                <CheckBox IsChecked="{Binding AllowBack, ElementName=wizard}" Content="Back" Margin="20,0,0,0" />
-                                <CheckBox IsChecked="{Binding AllowCancel, ElementName=wizard}" Content="Cancel" Margin="20,0,0,0"/>
-                                <CheckBox IsChecked="{Binding AllowFinish, ElementName=wizard}" Content="Finish" Margin="20,0,0,0"/>
-                            </StackPanel>
-                        </GroupBox>
-                        <dxco:Wizard x:Name="wizard" Grid.Row="1" AnimationType="SlideHorizontal">
-                            <dxmvvm:Interaction.Behaviors>
-                                <dxco:WizardService>
-                                    <dxco:WizardService.PageGeneratorTemplate>
-                                        <DataTemplate>
-                                            <dxco:WizardPage ShowNext="{Binding ShowNext}" ShowBack="{Binding ShowBack}" ShowCancel="{Binding ShowCancel}" ShowFinish="{Binding ShowFinish}"
-                                                             AllowNext="{Binding AllowNext}" AllowBack="{Binding AllowBack}" AllowCancel="{Binding AllowCancel}" AllowFinish="{Binding AllowFinish}" />
-                                        </DataTemplate>
-                                    </dxco:WizardService.PageGeneratorTemplate>
-                                </dxco:WizardService>
-                                <dx:DXMessageBoxService />
-                                <dxmvvm:EventToCommand EventName="Loaded" Command="{Binding ViewLoadedCommand}" />
-                            </dxmvvm:Interaction.Behaviors>
-                        </dxco:Wizard>
-                    </Grid>
+                    <views:DialogWindowContent />
                 </DataTemplate>
             </dx:DialogService.ViewTemplate>
             <dx:DialogService.DialogStyle>
@@ -66,7 +35,7 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Button Command="{Binding ShowDialogCommand}" Content="Start Wizard" MinWidth="100" MinHeight="50"/>
+            <Button Command="{Binding ShowDialogCommand}" Content="Start Wizard" Width="100" Height="50"/>
             <TextBlock Text="{Binding Text}" />
         </StackPanel>
     </Grid>

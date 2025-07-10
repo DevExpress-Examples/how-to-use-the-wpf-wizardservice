@@ -5,20 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
-using DevExpress.Mvvm.POCO;
 
 namespace VM_DrivenWizard.ViewModels
 {
     public class WelcomePageViewModel : WizardViewModelBase, ISupportWizardNextCommand
     {
-        protected WelcomePageViewModel()
+        IWizardService WizardService => this.GetService<IWizardService>();
+        public WelcomePageViewModel()
         {
             ShowCancel = true;
             ShowNext = true;
-        }
-        public static WelcomePageViewModel Create()
-        {
-            return ViewModelSource.Create(() => new WelcomePageViewModel());
         }
         public bool CanGoForward
         {
@@ -30,7 +26,7 @@ namespace VM_DrivenWizard.ViewModels
         }
         protected void GoForward()
         {
-            this.GetRequiredService<IWizardService>().Navigate("PlayTunePage", Model, this);
+            WizardService.Navigate("PlayTunePage", Model, this);
         }
     }
 }
