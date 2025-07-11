@@ -1,46 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using DevExpress.Mvvm;
-using DevExpress.Mvvm.DataAnnotations;
-using DevExpress.Mvvm.Native;
-using DevExpress.Mvvm.POCO;
 
-namespace VM_DrivenWizard.ViewModels
-{
-    public abstract class WizardViewModelBase : ISupportParameter, ISupportWizardCancelCommand
-    {
-        protected WizardViewModelBase() { }
-        public bool CanCancel
-        {
+namespace VM_DrivenWizard.ViewModels {
+    public abstract class WizardViewModelBase : ViewModelBase, ISupportParameter, ISupportWizardCancelCommand {
+        IMessageBoxService MessageBoxService => this.GetService<IMessageBoxService>();
+        public bool CanCancel {
             get { return GetCanCancel(); }
         }
-        public virtual Model Model { get; protected set; }
-        object ISupportParameter.Parameter
-        {
+        protected virtual Model Model { get; set; }
+        object ISupportParameter.Parameter {
             get { return Model; }
             set { Model = (Model)value; }
         }
-        public void OnCancel(CancelEventArgs e)
-        {
-            if (this.GetService<IMessageBoxService>().
-                ShowMessage("Do you want to exit the WPF feature tour?", "WPF Tour", MessageButton.YesNo, MessageIcon.Question) == MessageResult.No)
+        public void OnCancel(CancelEventArgs e) {
+            if (MessageBoxService.ShowMessage("Do you want to exit the WPF feature tour?", "WPF Tour", MessageButton.YesNo, MessageIcon.Question) == MessageResult.No)
                 e.Cancel = true;
         }
-        protected virtual bool GetCanCancel()
-        {
+        protected virtual bool GetCanCancel() {
             return true;
         }
-        public virtual bool ShowNext { get; set; } 
-        public virtual bool ShowBack { get; set; }
-        public virtual bool ShowCancel { get; set; }
-        public virtual bool ShowFinish { get; set; }
-        public virtual bool AllowNext { get; set; }
-        public virtual bool AllowBack { get; set; }
-        public virtual bool AllowCancel { get; set; }
-        public virtual bool AllowFinish { get; set; }
+        public virtual bool ShowNext {
+            get { return GetProperty(() => ShowNext); }
+            set { SetProperty(() => ShowNext, value); }
+        }
+        public virtual bool ShowBack {
+            get { return GetProperty(() => ShowBack); }
+            set { SetProperty(() => ShowBack, value); }
+        }
+        public virtual bool ShowCancel {
+            get { return GetProperty(() => ShowCancel); }
+            set { SetProperty(() => ShowCancel, value); }
+        }
+        public virtual bool ShowFinish {
+            get { return GetProperty(() => ShowFinish); }
+            set { SetProperty(() => ShowFinish, value); }
+        }
+        public virtual bool AllowNext {
+            get { return GetProperty(() => AllowNext); }
+            set { SetProperty(() => AllowNext, value); }
+        }
+        public virtual bool AllowBack {
+            get { return GetProperty(() => AllowBack); }
+            set { SetProperty(() => AllowBack, value); }
+        }
+        public virtual bool AllowCancel {
+            get { return GetProperty(() => AllowCancel); }
+            set { SetProperty(() => AllowCancel, value); }
+        }
+        public virtual bool AllowFinish {
+            get { return GetProperty(() => AllowFinish); }
+            set { SetProperty(() => AllowFinish, value); }
+        }
     }
 }

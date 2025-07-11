@@ -8,8 +8,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodel="clr-namespace:VM_DrivenWizard.ViewModels"
              mc:Ignorable="d" 
-            d:DesignHeight="300" d:DesignWidth="300"
-            DataContext="{dxmvvm:ViewModelSource Type=viewmodel:PlayTunePageViewModel}">
+            d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewmodel:PlayTunePageViewModel/>
+    </UserControl.DataContext>
     <UserControl.Resources>
         <DataTemplate x:Key="WizardHeaderTemplate">
             <Grid>
@@ -35,7 +37,7 @@
         <DockPanel>
             <ContentPresenter DockPanel.Dock="Top" Content="{Binding}" ContentTemplate="{StaticResource WizardHeaderTemplate}"/>
             <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Margin="10" MinWidth="65" MinHeight="22" Content="Play" Command="{Binding PlayCommand}"/>
-            <dxe:ListBoxEdit ValueMember="Content" EditValue="{Binding Song, UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,0" FontSize="10" Height="230">
+            <dxe:ListBoxEdit ValueMember="Content" EditValue="{Binding Song, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="0,10,0,0" FontSize="10" Height="230">
                 <dxe:ListBoxEditItem Content="Metallica - Enter Sandman" />
                 <dxe:ListBoxEditItem Content="Nirvana - Smells Like Teen Spirit" />
                 <dxe:ListBoxEditItem Content="Pet Shop Boys - West End Girls" />

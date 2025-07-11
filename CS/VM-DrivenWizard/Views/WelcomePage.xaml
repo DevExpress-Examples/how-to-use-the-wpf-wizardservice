@@ -7,8 +7,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodel="clr-namespace:VM_DrivenWizard.ViewModels"
              mc:Ignorable="d" 
-            d:DesignHeight="300" d:DesignWidth="300"
-            DataContext="{dxmvvm:ViewModelSource Type=viewmodel:WelcomePageViewModel}">
+            d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewmodel:WelcomePageViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

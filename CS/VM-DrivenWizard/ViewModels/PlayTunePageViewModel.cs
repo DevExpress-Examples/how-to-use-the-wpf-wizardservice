@@ -5,65 +5,69 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Mvvm;
-using DevExpress.Mvvm.POCO;
+using DevExpress.Mvvm.DataAnnotations;
 
-namespace VM_DrivenWizard.ViewModels
-{
-    public class PlayTunePageViewModel : WizardViewModelBase, ISupportWizardNextCommand, ISupportWizardFinishCommand
-    {
-        public static PlayTunePageViewModel Create()
-        {
-            return ViewModelSource.Create(() => new PlayTunePageViewModel());
-        }
-        protected PlayTunePageViewModel()
-        {
+namespace VM_DrivenWizard.ViewModels {
+    public class PlayTunePageViewModel : WizardViewModelBase, ISupportWizardNextCommand, ISupportWizardFinishCommand {
+        public PlayTunePageViewModel() {
             ShowBack = true;
             ShowCancel = true;
             ShowNext = true;
             AllowBack = true;
             AllowCancel = true;
         }
-        public string Header { get { return "Step 2 - Play a tune"; } }
-        public string Description { get { return "To make this demo more entertaining, we would like to play a tune for you. Simple choose your favorite track."; } }
+        public string Header => "Step 2 - Play a tune";
+        public string Description => "To make this demo more entertaining, we would like to play a tune for you. Simply choose your favorite track.";
+        IMessageBoxService MessageBoxService => this.GetService<IMessageBoxService>();
+        IWizardService WizardService => this.GetService<IWizardService>();
 
-        public void Play()
-        {
-            string text = @"Sorry, but we don't have that song in our library..." + Environment.NewLine;
-            text += @"But we are agree with you that ""{0}"" is an exellent choice.";
-            text = string.Format(text, Model.Song);
-            this.GetService<IMessageBoxService>().ShowMessage(text, "Wizard", MessageButton.OK, MessageIcon.Information);
+        [Command]
+        public void Play() {
+            var song = Model?.Song;
+            var sb = new StringBuilder();
+            sb.AppendLine("Sorry, but we don't have that song in our library...");
+            if (!string.IsNullOrWhiteSpace(song)) {
+                sb.AppendLine($@"But we agree with you that ""{song}"" is an excellent choice.");
+            }
+            else {
+                sb.AppendLine("But we agree with you that your choice is excellent.");
+            }
+            MessageBoxService.ShowMessage(sb.ToString(), "Wizard", MessageButton.OK, MessageIcon.Information);
         }
-        public bool CanPlay()
-        {
-            return Model != null && !string.IsNullOrEmpty(Model.Song);
+        public bool CanPlay() {
+            return !string.IsNullOrEmpty(Song);
         }
-        public virtual string Song { get; set; }
 
-        public bool CanGoForward
-        {
-            get { return CanPlay(); }
-        }
-
-        public bool CanFinish
-        {
-            get
-            {
-                return true;
+        protected override Model Model { 
+            get { return base.Model; } 
+            set {
+                base.Model = value;
+                Song = value?.Song;
             }
         }
 
-        protected virtual void OnSongChanged()
-        {
+        public string Song {
+            get { return GetProperty(() => Song); }
+            set { SetProperty(() => Song, value, OnSongChanged); }
+        }
+
+        public bool CanGoForward {
+            get { return CanPlay(); }
+        }
+
+        public bool CanFinish {
+            get { return true; }
+        }
+
+        void OnSongChanged() {
             Model.Song = Song;
         }
 
-        public void OnGoForward(CancelEventArgs e)
-        {
-            this.GetRequiredService<IWizardService>().Navigate("CongratulationsPage", Model, this);
+        public void OnGoForward(CancelEventArgs e) {
+            WizardService.Navigate("CongratulationsPage", Model, this);
         }
-        public void OnFinish(CancelEventArgs e)
-        {
-            this.GetService<IMessageBoxService>().ShowMessage("You have finished the tour.", "WPF Tour", MessageButton.OK, MessageIcon.Exclamation);
+        public void OnFinish(CancelEventArgs e) {
+            MessageBoxService.ShowMessage("You have finished the tour.", "WPF Tour", MessageButton.OK, MessageIcon.Exclamation);
         }
     }
 }

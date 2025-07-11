@@ -1,35 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using DevExpress.Mvvm;
+using DevExpress.Mvvm.DataAnnotations;
+using System;
 using System.Threading.Tasks;
-using DevExpress.Mvvm;
-using DevExpress.Mvvm.POCO;
 
 
-namespace VM_DrivenWizard.ViewModel {
-    public class MainWindowViewModel {
-        public static MainWindowViewModel Create() {
-            return ViewModelSource.Create(() => new MainWindowViewModel());
-        }
-
-        protected MainWindowViewModel() {
-            Model = new Model();
-        }
-
+namespace VM_DrivenWizard.ViewModels {
+    public class MainWindowViewModel : ViewModelBase {
         public virtual string Text { get; protected set; }
+        IDialogService DialogService => this.GetService<IDialogService>();
 
+        [Command]
         public void ShowDialog() {
-            var wizardResult = this.GetRequiredService<IDialogService>().ShowDialog(MessageButton.OKCancel, "Wizard", this).ToString();
-            var song = Model.Song;
-            Text = "Wizard result: " + wizardResult + (string.IsNullOrEmpty(song) ? string.Empty : ", you choose " + Model.Song);
-        }
-
-        Model Model { get; set; }
-        public void ViewLoaded() {
-            this.GetRequiredService<IWizardService>().Navigate("WelcomePage", null,  Model, this);
+            var dialogWindowViewModel = new DialogWindowViewModel();
+            var wizardResult = DialogService.ShowDialog(MessageButton.OKCancel, "Wizard", dialogWindowViewModel).ToString();
+            string selectedSong = dialogWindowViewModel.GetSelectedSong();
+            Text = $"Wizard result: {wizardResult}{(string.IsNullOrEmpty(selectedSong) ? string.Empty : $", you choose {selectedSong}")}";
         }
     }
 }
