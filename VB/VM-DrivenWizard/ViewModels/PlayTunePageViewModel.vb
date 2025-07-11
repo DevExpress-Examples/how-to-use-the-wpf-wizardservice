@@ -1,7 +1,8 @@
 Imports System
 Imports System.ComponentModel
+Imports System.Text
 Imports DevExpress.Mvvm
-Imports DevExpress.Mvvm.POCO
+Imports DevExpress.Mvvm.DataAnnotations
 
 Namespace VM_DrivenWizard.ViewModels
 
@@ -9,11 +10,7 @@ Namespace VM_DrivenWizard.ViewModels
         Inherits WizardViewModelBase
         Implements ISupportWizardNextCommand, ISupportWizardFinishCommand
 
-        Public Shared Function Create() As PlayTunePageViewModel
-            Return ViewModelSource.Create(Function() New PlayTunePageViewModel())
-        End Function
-
-        Protected Sub New()
+        Public Sub New()
             ShowBack = True
             ShowCancel = True
             ShowNext = True
@@ -29,22 +26,60 @@ Namespace VM_DrivenWizard.ViewModels
 
         Public ReadOnly Property Description As String
             Get
-                Return "To make this demo more entertaining, we would like to play a tune for you. Simple choose your favorite track."
+                Return "To make this demo more entertaining, we would like to play a tune for you. Simply choose your favorite track."
             End Get
         End Property
 
+        Private ReadOnly Property MessageBoxService As IMessageBoxService
+            Get
+                Return GetService(Of IMessageBoxService)()
+            End Get
+        End Property
+
+        Private ReadOnly Property WizardService As IWizardService
+            Get
+                Return GetService(Of IWizardService)()
+            End Get
+        End Property
+
+        <Command>
         Public Sub Play()
-            Dim text As String = "Sorry, but we don't have that song in our library..." & Environment.NewLine
-            text += "But we are agree with you that ""{0}"" is an exellent choice."
-            text = String.Format(text, Model.Song)
-            GetService(Of IMessageBoxService).ShowMessage(text, "Wizard", MessageButton.OK, MessageIcon.Information)
+            Dim song = Model?.Song
+            Dim sb = New StringBuilder()
+            sb.AppendLine("Sorry, but we don't have that song in our library...")
+            If Not String.IsNullOrWhiteSpace(song) Then
+                sb.AppendLine($"But we agree with you that ""{song}"" is an excellent choice.")
+            Else
+                sb.AppendLine("But we agree with you that your choice is excellent.")
+            End If
+
+            MessageBoxService.ShowMessage(sb.ToString(), "Wizard", MessageButton.OK, MessageIcon.Information)
         End Sub
 
         Public Function CanPlay() As Boolean
-            Return Model IsNot Nothing AndAlso Not String.IsNullOrEmpty(Model.Song)
+            Return Not String.IsNullOrEmpty(Song)
         End Function
 
-        Public Overridable Property Song As String
+        Protected Overrides Property Model As Model
+            Get
+                Return MyBase.Model
+            End Get
+
+            Set(ByVal value As Model)
+                MyBase.Model = value
+                Song = value?.Song
+            End Set
+        End Property
+
+        Public Property Song As String
+            Get
+                Return GetProperty(Function() Me.Song)
+            End Get
+
+            Set(ByVal value As String)
+                SetProperty(Function() Song, value, New Action(AddressOf OnSongChanged))
+            End Set
+        End Property
 
         Public ReadOnly Property CanGoForward As Boolean Implements ISupportWizardNextCommand.CanGoForward
             Get
@@ -58,16 +93,16 @@ Namespace VM_DrivenWizard.ViewModels
             End Get
         End Property
 
-        Protected Overridable Sub OnSongChanged()
+        Private Sub OnSongChanged()
             Model.Song = Song
         End Sub
 
         Public Sub OnGoForward(ByVal e As CancelEventArgs) Implements ISupportWizardNextCommand.OnGoForward
-            GetRequiredService(Of IWizardService)().Navigate("CongratulationsPage", Model, Me)
+            WizardService.Navigate("CongratulationsPage", Model, Me)
         End Sub
 
         Public Sub OnFinish(ByVal e As CancelEventArgs) Implements ISupportWizardFinishCommand.OnFinish
-            GetService(Of IMessageBoxService)().ShowMessage("You have finished the tour.", "WPF Tour", MessageButton.OK, MessageIcon.Exclamation)
+            MessageBoxService.ShowMessage("You have finished the tour.", "WPF Tour", MessageButton.OK, MessageIcon.Exclamation)
         End Sub
     End Class
 End Namespace
