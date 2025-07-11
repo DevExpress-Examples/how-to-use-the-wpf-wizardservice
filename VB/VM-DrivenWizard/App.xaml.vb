@@ -2,9 +2,6 @@ Imports System.Windows
 
 Namespace VM_DrivenWizard
 
-    ''' <summary>
-    ''' Interaction logic for App.xaml
-    ''' </summary>
     Public Partial Class App
         Inherits Application
 

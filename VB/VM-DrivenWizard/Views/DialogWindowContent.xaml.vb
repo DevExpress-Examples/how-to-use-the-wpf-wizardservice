@@ -1,10 +1,9 @@
-Imports System.Windows
 Imports System.Windows.Controls
 
-Namespace VM_DrivenWizard
+Namespace VM_DrivenWizard.Views
 
-    Public Partial Class MainWindow
-        Inherits Window
+    Public Partial Class DialogWindowContent
+        Inherits UserControl
 
         Public Sub New()
             Me.InitializeComponent()
