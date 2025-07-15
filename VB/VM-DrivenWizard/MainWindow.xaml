@@ -1,0 +1,42 @@
+<Window x:Class="VM_DrivenWizard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VM_DrivenWizard"
+        xmlns:views="clr-namespace:VM_DrivenWizard.Views"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxi="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
+        xmlns:dxco="http://schemas.devexpress.com/winfx/2008/xaml/controls"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:vm="clr-namespace:VM_DrivenWizard.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+    <dxmvvm:Interaction.Behaviors>
+        <dx:DialogService UnregisterOnUnloaded="True">
+            <dx:DialogService.ViewTemplate>
+                <DataTemplate>
+                    <views:DialogWindowContent />
+                </DataTemplate>
+            </dx:DialogService.ViewTemplate>
+            <dx:DialogService.DialogStyle>
+                <Style TargetType="dx:ThemedWindow">
+                    <Setter Property="WindowStyle" Value="ToolWindow"/>
+                    <Setter Property="Width" Value="1000" />
+                    <Setter Property="Height" Value="600" />
+                    <Setter Property="dxi:ThemedWindowOptions.UseCustomDialogFooter" Value="True"/>
+                </Style>
+            </dx:DialogService.DialogStyle>
+        </dx:DialogService>
+    </dxmvvm:Interaction.Behaviors>
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button Command="{Binding ShowDialogCommand}" Content="Start Wizard" Width="100" Height="50"/>
+            <TextBlock Text="{Binding Text}" />
+        </StackPanel>
+    </Grid>
+</Window>
