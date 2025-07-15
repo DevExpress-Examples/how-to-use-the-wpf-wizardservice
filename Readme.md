@@ -75,15 +75,15 @@ This example uses the DevExpress [ThemedWindow](https://docs.devexpress.com/WPF/
 
 ## Files to Review
 
-* [MainWindow.xaml](./CS/VM-DrivenWizard/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/VM-DrivenWizard/MainWindow.xaml))
-* [WelcomePage.xaml](./CS/VM-DrivenWizard/Views/WelcomePage.xaml) (VB: [WelcomePage.xaml](./VB/VM-DrivenWizard/Views/WelcomePage.xaml))
-* [PlayTunePage.xaml](./CS/VM-DrivenWizard/Views/PlayTunePage.xaml) (VB: [PlayTunePage.xaml](./VB/VM-DrivenWizard/Views/PlayTunePage.xaml))
-* [CongratulationsPage.xaml](./CS/VM-DrivenWizard/Views/CongratulationsPage.xaml) (VB: [CongratulationsPage.xaml](./VB/VM-DrivenWizard/Views/CongratulationsPage.xaml))
-* [MainWindowViewModel.cs](./CS/VM-DrivenWizard/ViewModels/MainWindowViewModel.cs) (VB: [MainWindowViewModel.vb](./VB/VM-DrivenWizard/ViewModels/MainWindowViewModel.vb))
-* [WizardViewModelBase.cs](./CS/VM-DrivenWizard/ViewModels/WizardViewModelBase.cs) (VB: [WizardViewModelBase.vb](./VB/VM-DrivenWizard/ViewModels/WizardViewModelBase.vb))
-* [WelcomePageViewModel.vb](./CS/VM-DrivenWizard/ViewModels/WelcomePageViewModel.cs) (VB: [WelcomePageViewModel.vb](./VB/VM-DrivenWizard/ViewModels/WelcomePageViewModel.vb))
-* [PlayTunePageViewModel.cs](./CS/VM-DrivenWizard/ViewModels/PlayTunePageViewModel.cs) (VB: [PlayTunePageViewModel.vb](./VB/VM-DrivenWizard/ViewModels/PlayTunePageViewModel.vb))
-* [CongratulationsPageViewModel.cs](./CS/VM-DrivenWizard/ViewModels/CongratulationsPageViewModel.cs) (VB: [CongratulationsPageViewModel.vb](./VB/VM-DrivenWizard/ViewModels/CongratulationsPageViewModel.vb))
+* [MainWindow.xaml](./CS/VM-DrivenWizard/MainWindow.xaml) 
+* [WelcomePage.xaml](./CS/VM-DrivenWizard/Views/WelcomePage.xaml) 
+* [PlayTunePage.xaml](./CS/VM-DrivenWizard/Views/PlayTunePage.xaml) 
+* [CongratulationsPage.xaml](./CS/VM-DrivenWizard/Views/CongratulationsPage.xaml) 
+* [MainWindowViewModel.cs](./CS/VM-DrivenWizard/ViewModels/MainWindowViewModel.cs) 
+* [WizardViewModelBase.cs](./CS/VM-DrivenWizard/ViewModels/WizardViewModelBase.cs) 
+* [WelcomePageViewModel.cs](./CS/VM-DrivenWizard/ViewModels/WelcomePageViewModel.cs) 
+* [PlayTunePageViewModel.cs](./CS/VM-DrivenWizard/ViewModels/PlayTunePageViewModel.cs) 
+* [CongratulationsPageViewModel.cs](./CS/VM-DrivenWizard/ViewModels/CongratulationsPageViewModel.cs) 
 
 ## Documentation
 
