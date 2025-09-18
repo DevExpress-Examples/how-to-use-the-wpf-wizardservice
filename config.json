@@ -1,4 +1,4 @@
 {
-  "autoGenerateVb": false,
-  "runOnWeb": true
+  "autoGenerateVb": true,
+  "runOnWeb": false
 }
