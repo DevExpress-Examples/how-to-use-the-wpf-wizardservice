@@ -97,7 +97,7 @@ This example uses the DevExpress [ThemedWindow](https://docs.devexpress.com/WPF/
 * [Create a Wizard with Pages Defined in XAML](https://github.com/DevExpress-Examples/wpf-create-a-wizard-with-pages-defined-in-xaml)
 * [Create a Wizard Based on a Collection of View Models](https://github.com/DevExpress-Examples/how-to-create-a-wizard-based-on-a-collection-of-view-models-t415475)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-use-the-wpf-wizardservice&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-use-the-wpf-wizardservice&~~~was_helpful=no)
 
